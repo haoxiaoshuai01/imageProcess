@@ -13,10 +13,184 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="eigen">
+      <UniqueIdentifier>{4c712f4c-b699-4a13-aafe-e0ea587208eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glad">
+      <UniqueIdentifier>{e8315901-0f56-46d0-8c30-11bad61c4b37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stb">
+      <UniqueIdentifier>{a6e3d050-f137-49d9-9593-df7e5281bdf5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="imageProcess.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\thirdLib\stb\stb_vorbis.c">
+      <Filter>stb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdLib\glad\src\glad.c">
+      <Filter>glad</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\thirdLib\Eigen\Cholesky">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\CholmodSupport">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Core">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Dense">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Eigen">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Eigenvalues">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Geometry">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Householder">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\IterativeLinearSolvers">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Jacobi">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\LU">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\MetisSupport">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\OrderingMethods">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\PardisoSupport">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\PaStiXSupport">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\QR">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\QtAlignedMalloc">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\Sparse">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\SparseCholesky">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\SparseCore">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\SparseLU">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\SparseQR">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\SPQRSupport">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\StdDeque">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\StdList">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\StdVector">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\SuperLUSupport">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\SVD">
+      <Filter>eigen</Filter>
+    </None>
+    <None Include="..\thirdLib\Eigen\UmfPackSupport">
+      <Filter>eigen</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\thirdLib\Eigen\CMakeLists.txt">
+      <Filter>eigen</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\thirdLib\stb\stb_c_lexer.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_connected_components.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_divide.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_ds.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_dxt.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_easy_font.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_herringbone_wang_tile.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_hexwave.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_image.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_image_resize.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_image_write.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_include.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_leakcheck.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_rect_pack.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_sprintf.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_textedit.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_tilemap_editor.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_truetype.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\stb\stb_voxel_render.h">
+      <Filter>stb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\glad\include\glad\glad.h">
+      <Filter>glad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdLib\glad\include\KHR\khrplatform.h">
+      <Filter>glad</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

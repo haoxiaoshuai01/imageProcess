@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -108,12 +108,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\thirdLib\Qt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\thirdLib\Qt\include;$(SolutionDir)\thirdLib\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\thirdLib\Qt\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Guid.lib;Qt5Cored.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /Y /R "$(SolutionDir)\thirdLib\Qt\*.dll" "$(SolutionDir)\bin\$(Platform)\$(Configuration)\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -154,7 +159,66 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="imageProcess.cpp" />
+    <ClCompile Include="..\thirdLib\glad\src\glad.c" />
+    <ClCompile Include="..\thirdLib\stb\stb_vorbis.c" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\thirdLib\Eigen\Cholesky" />
+    <None Include="..\thirdLib\Eigen\CholmodSupport" />
+    <None Include="..\thirdLib\Eigen\Core" />
+    <None Include="..\thirdLib\Eigen\Dense" />
+    <None Include="..\thirdLib\Eigen\Eigen" />
+    <None Include="..\thirdLib\Eigen\Eigenvalues" />
+    <None Include="..\thirdLib\Eigen\Geometry" />
+    <None Include="..\thirdLib\Eigen\Householder" />
+    <None Include="..\thirdLib\Eigen\IterativeLinearSolvers" />
+    <None Include="..\thirdLib\Eigen\Jacobi" />
+    <None Include="..\thirdLib\Eigen\LU" />
+    <None Include="..\thirdLib\Eigen\MetisSupport" />
+    <None Include="..\thirdLib\Eigen\OrderingMethods" />
+    <None Include="..\thirdLib\Eigen\PardisoSupport" />
+    <None Include="..\thirdLib\Eigen\PaStiXSupport" />
+    <None Include="..\thirdLib\Eigen\QR" />
+    <None Include="..\thirdLib\Eigen\QtAlignedMalloc" />
+    <None Include="..\thirdLib\Eigen\Sparse" />
+    <None Include="..\thirdLib\Eigen\SparseCholesky" />
+    <None Include="..\thirdLib\Eigen\SparseCore" />
+    <None Include="..\thirdLib\Eigen\SparseLU" />
+    <None Include="..\thirdLib\Eigen\SparseQR" />
+    <None Include="..\thirdLib\Eigen\SPQRSupport" />
+    <None Include="..\thirdLib\Eigen\StdDeque" />
+    <None Include="..\thirdLib\Eigen\StdList" />
+    <None Include="..\thirdLib\Eigen\StdVector" />
+    <None Include="..\thirdLib\Eigen\SuperLUSupport" />
+    <None Include="..\thirdLib\Eigen\SVD" />
+    <None Include="..\thirdLib\Eigen\UmfPackSupport" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\thirdLib\Eigen\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\thirdLib\glad\include\glad\glad.h" />
+    <ClInclude Include="..\thirdLib\glad\include\KHR\khrplatform.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_connected_components.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_c_lexer.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_divide.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_ds.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_dxt.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_easy_font.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_herringbone_wang_tile.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_hexwave.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_image.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_image_resize.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_image_write.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_include.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_leakcheck.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_rect_pack.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_sprintf.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_textedit.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_tilemap_editor.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_truetype.h" />
+    <ClInclude Include="..\thirdLib\stb\stb_voxel_render.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
