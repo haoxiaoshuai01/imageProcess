@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\thirdLib\Qt\include;$(SolutionDir)\thirdLib\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\thirdLib\Qt\include;$(SolutionDir)\thirdLib\glad\include;$(SolutionDir)\thirdLib\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,7 +161,10 @@
   <ItemGroup>
     <ClCompile Include="..\thirdLib\glad\src\glad.c" />
     <ClCompile Include="..\thirdLib\stb\stb_vorbis.c" />
+    <ClCompile Include="ActionWidget.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OpenglWindow.cpp" />
+    <ClCompile Include="stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\thirdLib\Eigen\Cholesky" />
@@ -219,6 +222,8 @@
     <ClInclude Include="..\thirdLib\stb\stb_tilemap_editor.h" />
     <ClInclude Include="..\thirdLib\stb\stb_truetype.h" />
     <ClInclude Include="..\thirdLib\stb\stb_voxel_render.h" />
+    <ClInclude Include="ActionWidget.h" />
+    <ClInclude Include="OpenglWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

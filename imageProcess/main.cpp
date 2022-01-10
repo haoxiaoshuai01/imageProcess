@@ -1,10 +1,11 @@
 ﻿#include <iostream>
 #include <QtWidgets/qapplication.h>
 #include "QtWidgets/qwidget.h"
-
 #include "QtGui/qsurfaceformat.h"
-//#include "QtGui/qopenglwindow.h"
-//#include "QtWidgets/qwidget.h"
+#include "QtWidgets/QHBoxLayout"
+#include "OpenglWindow.h"
+#include "ActionWidget.h"
+
 
 
 int main(int argc, char *argv[])
@@ -17,9 +18,15 @@ int main(int argc, char *argv[])
 	QSurfaceFormat::setDefaultFormat(qsf);
 
 	QApplication app(argc, argv);
-	QWidget window;
-	window.resize(100, 100);
-	window.show();
+	QWidget mainWidget;
+	QHBoxLayout layout;
+	auto window = OpenglWindow::Instance();
+	layout.addWidget(QWidget::createWindowContainer(window),3);
+	layout.addWidget(ActionWidget::Instance(),1);
+
+	mainWidget.setLayout(&layout);
+	mainWidget.resize(1000, 800);
+	mainWidget.show();
 
 	return app.exec();
 }
