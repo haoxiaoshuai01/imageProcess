@@ -164,7 +164,9 @@
     <ClCompile Include="ActionWidget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OpenglWindow.cpp" />
+    <ClCompile Include="shader.cpp" />
     <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\thirdLib\Eigen\Cholesky" />
@@ -224,6 +226,8 @@
     <ClInclude Include="..\thirdLib\stb\stb_voxel_render.h" />
     <ClInclude Include="ActionWidget.h" />
     <ClInclude Include="OpenglWindow.h" />
+    <ClInclude Include="shader.h" />
+    <ClInclude Include="texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

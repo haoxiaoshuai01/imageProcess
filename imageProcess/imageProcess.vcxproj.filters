@@ -42,6 +42,12 @@
     <ClCompile Include="ActionWidget.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\thirdLib\Eigen\Cholesky">
@@ -205,6 +211,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ActionWidget.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
