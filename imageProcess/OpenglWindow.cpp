@@ -2,6 +2,7 @@
 #include <sys/timeb.h>
 #include "QtWidgets/QApplication"
 #include "stb/stb_image.h"
+#include "QtCore/qdebug.h"
 static const char *textureVS = "#version 430 core\n"
 "layout (location = 0) in vec3 aPos;\n"
 "layout (location = 1) in vec2 aTexCoord;\n"
@@ -35,17 +36,20 @@ void OpenglWindow::initializeGL()
 		return;
 	}
 	lastFrameTime = systemtime();
-
+	fboData = new unsigned char[1080 * 1920 * 4];
 	initImage();
+
+	
 }
 void OpenglWindow::resizeGL(int w, int h)
 {
-	glViewport(0, 0, w, h);
+	
 }
 void OpenglWindow::paintGL()
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
+	glViewport(0, 0, 1080, 1920);
 	shaderTexture->use();
 	shaderTexture->setInt("texture1", 0);
 	glActiveTexture(GL_TEXTURE0);
@@ -53,6 +57,10 @@ void OpenglWindow::paintGL()
 	glBindVertexArray(VAO);
 	glDrawElements(drawModel, indices.size(), GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
+	auto i1 = systemtime();
+	glReadPixels(0, 0, 1080, 1920, GL_RGBA, GL_UNSIGNED_BYTE, fboData);
+	auto i2 = systemtime();
+	qDebug() <<"read:"<< -i1 + i2;
 
 	frameDelta = systemtime() - lastFrameTime;
 	lastFrameTime = systemtime();
@@ -65,7 +73,64 @@ void OpenglWindow::initImage()
 	int mComp;
 	unsigned char *data = stbi_load(QString(QApplication::applicationDirPath() + "/test2.jpg").toStdString().c_str(),
 		&mWidth, &mHeight, &mComp, 0);
-	
+	//int biHeight = 5;
+	//int biWidth = 5;
+	//int totalLevel = 9;
+	//float p[10] = {0};
+	//int a[25] = {0,0,0,0,1,
+	//			1,2,2,2,2,
+	//			3,3,3,3,3,
+	//			9,9,3,3,3,
+	//			3,0,0,0,0
+	//};
+	//for (int i = 0; i < biHeight; i++)
+	//{
+	//	for (int j = 0; j < biWidth; j++)
+	//	{
+	//		int gray_ = a[i*biWidth + j];
+	//		p[gray_] = p[gray_] + 1.0f / float(biHeight* biWidth);
+	//	}
+	//}
+
+	//{
+	//	for (int i = 0; i < biHeight; i++)
+	//	{
+	//		for (int j = 0; j <biWidth; j++)
+	//		{
+	//			float dTemp = 0;
+
+	//			int gray_ = a[i*biWidth + j];
+
+	//			for (BYTE k = 0; k <= gray_; k++)
+	//			{
+	//				dTemp += *(&p[0] +k);
+	//			};
+
+	//			int target = int(totalLevel * dTemp);
+
+	//			if (target < 0) target = 0;
+	//			if (target > totalLevel) target = totalLevel;
+
+	//			// Ð´ÈëÄ¿±êÍ¼Ïñ
+	//			a[i*biWidth + j] = target;
+	//		}
+	//	};
+
+	//}
+
+	//float p1[10] = { 0 };
+	//for (int i = 0; i < biHeight; i++)
+	//{
+	//	for (int j = 0; j < biWidth; j++)
+	//	{
+	//		int gray_ = a[i*biWidth + j];
+	//		p1[gray_] = p1[gray_] + 1.0f / float(biHeight* biWidth);
+	//	}
+	//}
+
+
+
+
 	texture = new Texture(data,mWidth,mHeight,mComp);
 	stbi_image_free(data);
 	
@@ -126,5 +191,7 @@ void OpenglWindow::setupMesh()
 }
 OpenglWindow::OpenglWindow()
 {
-
+	QObject::connect(this, &QOpenGLWindow::frameSwapped, this, [this]() {
+		this->update();
+	});
 }

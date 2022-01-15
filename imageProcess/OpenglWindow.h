@@ -39,5 +39,7 @@ private:
 	explicit OpenglWindow();
 	long long lastFrameTime = 0;
 	long long frameDelta = 0;
+
+	unsigned char * fboData;
 };
 
