@@ -19,9 +19,10 @@ int main(int argc, char *argv[])
 
 	QApplication app(argc, argv);
 	QWidget mainWidget;
+	
 	QHBoxLayout layout;
 	auto window = OpenglWindow::Instance();
-	layout.addWidget(QWidget::createWindowContainer(window),3);
+	layout.addWidget(window,3);
 	layout.addWidget(ActionWidget::Instance(),1);
 
 	mainWidget.setLayout(&layout);

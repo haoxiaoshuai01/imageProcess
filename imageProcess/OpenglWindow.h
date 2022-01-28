@@ -7,7 +7,8 @@
 #include "Eigen/Core"
 #include "shader.h"
 #include  "texture.h"
-class OpenglWindow :public QOpenGLWindow
+#include "QtWidgets/QOpenGLWidget"
+class OpenglWindow :public QOpenGLWidget
 {
 public:
 	static OpenglWindow *Instance() {
@@ -23,6 +24,7 @@ protected:
 private:
 	void initImage();
 	void setupMesh();
+	void setUPFinalFbo();
 private:
 	std::vector<Eigen::Vector3f> verticesPostion;
 	std::vector<Eigen::Vector2f> verticesTexCoords;
@@ -41,5 +43,15 @@ private:
 	long long frameDelta = 0;
 
 	unsigned char * fboData;
+
+
+	unsigned int FinalFboID;
+	unsigned int FinalFboTexture;
+	unsigned int screenFaceVAO;
+	unsigned int screenFaceVBO;
+	Shader*screenShader;
+
+	int window_w = 0;
+	int window_h = 0;
 };
 
